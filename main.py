@@ -1,4 +1,3 @@
-from flask import Flask, render_template, request
 import undetected_chromedriver as uc
 import re
 from selenium.webdriver.common.keys import Keys
@@ -32,23 +31,3 @@ def get_link_from_website(package_id):
         # Close the browser window and return the result link
         driver.quit()
         return result_link
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/get-link', methods=['POST'])
-def get_link():
-    user_input = request.form['input_string']
-    package_id = re.search('id=(.+)', user_input)
-    if package_id:
-        package_id = package_id.group(1)
-        result = get_link_from_website(f"#package={package_id}")
-    else:
-        result = None
-    return {'result_link': result}
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
