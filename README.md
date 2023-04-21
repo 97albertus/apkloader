@@ -6,11 +6,11 @@
 * Chrome Web Browser
 
 Установка необходимых библиотек:  
-
 ```
 pip -r requirements.txt
 ```
-Использование:
+Использование:  
+
 Программа принимает ссылку на страницу приложение в Play Store
 ```
 https://play.google.com/store/apps/details?id=com.twitter.android
