@@ -11,7 +11,9 @@ pip -r requirements.txt
 ```
 Использование:
 Программа принимает ссылку на страницу приложение в Play Store
-```https://play.google.com/store/apps/details?id=com.twitter.android```
+```
+https://play.google.com/store/apps/details?id=com.twitter.android
+```
 Ответ
 ```
 {
