@@ -18,6 +18,7 @@ def get_link_from_website(package_id):
     result_link = None
 
     try:
+        # Wait for the new button to appear, then locate it and get its link attribute
         link_element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.CLASS_NAME, "variant.octs"))
         )
@@ -28,6 +29,7 @@ def get_link_from_website(package_id):
     except TimeoutException:
         print("Timeout reached. The element could not be located.")
     finally:
+        # Close the browser window and return the result link
         driver.quit()
         return result_link
 
@@ -37,9 +39,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/get-link', methods=['POST'])
+@app.route('/get-link', methods=['GET'])
 def get_link():
-    user_input = request.form['input_string']
+    user_input = request.args.get('input_string')
     package_id = re.search('id=(.+)', user_input)
     if package_id:
         package_id = package_id.group(1)
