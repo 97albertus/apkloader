@@ -5,7 +5,8 @@
 * Python 3.8+
 * Chrome Web Browser
 
-Установка необходимых библиотек:
+Установка необходимых библиотек:  
+
 ```
 pip -r requirements.txt
 ```
