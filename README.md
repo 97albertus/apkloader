@@ -1,7 +1,13 @@
 # APK Loader
 ### APK Loader - скрипт для преобразования ссылки на страницу приложения в Play Market в прямую ссылку на загрузку APK-файла.
 ---
-Требования:
+### Каталог
+* main.py - основная функция
+* app.py - готовое веб-приложение на Flask, включает main.py
+* chromedriver - веб драйвер для работы Selenium
+* templates/index.html - html интрефейс для веб-приложения
+---
+**Требования:**
 * Python 3.8+
 * Chrome Web Browser
 ---
@@ -23,8 +29,10 @@ https://play.google.com/store/apps/details?id=com.twitter.android
 }
 ```
 ---
-### Каталог
-* main.py - основная функция
-* app.py - готовое веб-приложение на Flask, включает main.py
-* chromedriver - веб драйвер для работы Selenium
-* templates/index.html - html интрефейс для веб-приложения
+**Пример обращения к Flask-серверу из PHP:**
+```
+$link = 'https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf';
+$encoded_link = urlencode($link);
+$url = "http://localhost:5000/get-link?input_string=/getapk/?app=$encoded_link";
+$result = file_get_contents($url);
+```
